@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="sw">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBiz - Dashboard</title>
+    <!-- Viunganishi vya CSS yetu ya kimataifa na ya dashboard -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <div class="dashboard-wrapper">
+        
+        <!-- ==========================================
+             1. MENYU YA PEMBENI (SIDEBAR)
+             ========================================== -->
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <h2>SmartBiz</h2>
+                <span class="brand-badge">PRO</span>
+            </div>
+
+            <nav class="sidebar-menu">
+                <p class="menu-category">Mkuu</p>
+                <a href="#" class="menu-item active" data-page="admin-dash">
+                    <span class="menu-icon">📊</span> Admin Dashboard
+                </a>
+                <a href="#" class="menu-item" data-page="pos">
+                    <span class="menu-icon">🛒</span> Point of Sale (POS)
+                </a>
+
+                <p class="menu-category">Biashara</p>
+                <a href="#" class="menu-item" data-page="inventory">
+                    <span class="menu-icon">📦</span> Inventory / Stock
+                </a>
+                <a href="#" class="menu-item" data-page="sales-records">
+                    <span class="menu-icon">🧾</span> Sales & Invoices
+                </a>
+                <a href="#" class="menu-item" data-page="expenses">
+                    <span class="menu-icon">💸</span> Expense Tracker
+                </a>
+
+                <p class="menu-category">Watu & Ripoti</p>
+                <a href="#" class="menu-item" data-page="customers">
+                    <span class="menu-icon">👥</span> Customers Profile
+                </a>
+                <a href="#" class="menu-item" data-page="hr-roles">
+                    <span class="menu-icon">🛡️</span> HR & Role Access
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button id="btnLogout" class="btn-logout">
+                    <span class="menu-icon">🚪</span> Toka Mfomuni
+                </button>
+            </div>
+        </aside>
+
+        <!-- ==========================================
+             2. SEHEMU KUU YA MAUDHUI (MAIN CONTENT AREA)
+             ========================================== -->
+        <main class="main-content">
+            
+            <!-- SEHEMU YA JUU (TOP NAVBAR) -->
+            <header class="top-navbar">
+                <div class="page-title">
+                    <h1 id="current-view-title">Admin Dashboard</h1>
+                    <p id="current-view-date">Karibu kwenye mfumo wa uendeshaji</p>
+                </div>
+
+                <!-- Tafuta sehemu hii na uweke kengele kabla ya .user-info -->
+                <div class="user-profile-section">
+    
+                    <!-- KENGELE YA TAARIFA (NOTIFICATIONS) -->
+                    <div class="notification-dropdown-wrapper">
+                        <button id="btnNotification" class="btn-notification">
+                            🔔
+                            <span class="notification-badge">3</span>
+                        </button>
+                        <!-- Dirisha la taarifa litakalofunguka likibonyezwa -->
+                        <div class="notification-dropdown" id="notificationDropdown">
+                            <div class="dropdown-header">Taarifa Mpya</div>
+                            <div class="dropdown-body">
+                                <div class="notification-item unread">
+                                    <p class="notif-text"><strong>Stoki ya Chini:</strong> Bidhaa 'Maji ya Kilimanjaro' imebaki chini ya pcs 5.</p>
+                                    <span class="notif-time">Dk 5 zilizopita</span>
+                                </div>
+                                <div class="notification-item unread">
+                                    <p class="notif-text"><strong>Meneja:</strong> Amepitisha punguzo jipya la POS la 5%.</p>
+                                    <span class="notif-time">Saa 1 lililopita</span>
+                                </div>
+                                <div class="notification-item">
+                                    <p class="notif-text"><strong>Mfumo:</strong> Backup ya hifadhidata imekamilika vizuri.</p>
+                                    <span class="notif-time">Jana</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="user-info">
+                        <span class="user-name">Juma Shabaan</span>
+                        <span class="user-role">Administrator</span>
+                    </div>
+                    <div class="user-avatar">
+                        <img src="https://unsplash.com" alt="Profile">
+                    </div>
+                </div>
+            </header>
+
+            <!-- SEHEMU INAYOBADILIKA (DYNAMIC VIEW CONTAINER) -->
+            <!-- Hapa ndipo kurasa zote 21 zitakapokuwa zinasomwa na JavaScript mbeleni -->
+            <section id="dynamic-content-view" class="view-container">
+                
+                <!-- Weka nambari hizi ndani ya <section id="dynamic-content-view" class="view-container"> -->
+                    <div class="metrics-grid">
+    
+                        <!-- KADI YA 1: MAUZO YA LEO -->
+                        <div class="metric-card">
+                            <div class="card-details">
+                                <span class="card-title">Mauzo ya Leo</span>
+                                <h2 class="card-value">TSH 450,000</h2>
+                                <span class="card-trend up">
+                                    <span class="trend-icon">▲</span> +12.5% <span class="trend-text">tangu jana</span>
+                                </span>
+                            </div>
+                            <div class="card-icon bg-teal-light">💰</div>
+                        </div>
+                    
+                        <!-- KADI YA 2: FAIDA YA LEO -->
+                        <div class="metric-card">
+                            <div class="card-details">
+                                <span class="card-title">Faida ya Leo</span>
+                                <h2 class="card-value">TSH 185,000</h2>
+                                <span class="card-trend up">
+                                    <span class="trend-icon">▲</span> +8.2% <span class="trend-text">tangu jana</span>
+                                </span>
+                            </div>
+                            <div class="card-icon bg-blue-light">📈</div>
+                        </div>
+                    
+                        <!-- KADI YA 3: JUMLA YA BIDHAA -->
+                        <div class="metric-card">
+                            <div class="card-details">
+                                <span class="card-title">Jumla ya Bidhaa</span>
+                                <h2 class="card-value">1,240</h2>
+                                <span class="card-trend warning">
+                                    <span class="trend-icon">⚠️</span> 15 Zimeisha <span class="trend-text">stoki</span>
+                                </span>
+                            </div>
+                            <div class="card-icon bg-orange-light">📦</div>
+                        </div>
+                    
+                        <!-- KADI YA 4: WATEJA WAPYA -->
+                        <div class="metric-card">
+                            <div class="card-details">
+                                <span class="card-title">Wateja Wapya</span>
+                                <h2 class="card-value">48</h2>
+                                <span class="card-trend up">
+                                    <span class="trend-icon">▲</span> +24.0% <span class="trend-text">wiki hii</span>
+                                </span>
+                            </div>
+                            <div class="card-icon bg-purple-light">👥</div>
+                        </div>
+                    
+                    </div>
+                    <!-- Weka hii chini ya .metrics-grid -->
+                    <div class="dashboard-data-grid">
+    
+                        <!-- SEHEMU YA KUSHOTO: MIAMALA YA HIVI KARIBUNI -->
+                        <div class="data-card transactions-card">
+                            <div class="card-header">
+                                <h3>Miamala ya Hivi Karibuni</h3>
+                                <a href="#" class="view-all-link">Ona Zote</a>
+                            </div>
+                            <div class="table-responsive">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID ya Risiti</th>
+                                            <th>Mteja</th>
+                                            <th>Tarehe</th>
+                                            <th>Jumla</th>
+                                            <th>Hali</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>#SB-9021</strong></td>
+                                            <td>Anna Thomson</td>
+                                            <td>Leo, 10:15 AM</td>
+                                            <td>TSH 45,000</td>
+                                            <td><span class="status-badge success">Imelipwa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#SB-9020</strong></td>
+                                            <td>Mteja wa Kawaida</td>
+                                            <td>Leo, 09:40 AM</td>
+                                            <td>TSH 120,000</td>
+                                            <td><span class="status-badge success">Imelipwa</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#SB-9019</strong></td>
+                                            <td>Baraka Kipanya</td>
+                                            <td>Jana, 04:15 PM</td>
+                                            <td>TSH 85,000</td>
+                                            <td><span class="status-badge pending">Inasubiri</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>#SB-9018</strong></td>
+                                            <td>Sarah John</td>
+                                            <td>Jana, 02:10 PM</td>
+                                            <td>TSH 32,000</td>
+                                            <td><span class="status-badge success">Imelipwa</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    
+                        <!-- SEHEMU YA KULIA: BIDHAA ZINAZOONGOZA KUUTWA -->
+                        <div class="data-card products-card">
+                            <div class="card-header">
+                                <h3>Bidhaa Zinazoongoza</h3>
+                            </div>
+                            <div class="top-products-list">
+                                <div class="product-item">
+                                    <div class="prod-info">
+                                        <span class="prod-name">Ngano ya Azam 1kg</span>
+                                        <span class="prod-sales">Mifuko 340 imeuzwa</span>
+                                    </div>
+                                    <span class="prod-amount">TSH 748,000</span>
+                                </div>
+                                <div class="product-item">
+                                    <div class="prod-info">
+                                        <span class="prod-name">Mafuta ya Kupikia Safi 1L</span>
+                                        <span class="prod-sales">Chupa 210 zimeuzwa</span>
+                                    </div>
+                                    <span class="prod-amount">TSH 945,000</span>
+                                </div>
+                                <div class="product-item">
+                                    <div class="prod-info">
+                                        <span class="prod-name">Sukari ya Kilombero 1kg</span>
+                                        <span class="prod-sales">Mifuko 195 imeuzwa</span>
+                                    </div>
+                                    <span class="prod-amount">TSH 585,000</span>
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JavaScript ya kuendesha Dashboard -->
+    <script src="js/api.js"></script>
+    <script src="js/router.js"></script>
+</body>
+</html>
